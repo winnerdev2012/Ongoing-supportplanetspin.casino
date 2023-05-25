@@ -1,0 +1,8 @@
+$customThemeDefault: (
+    'datepickerBg': var(--mc-baseMain),
+    'datepickerColor': var(--mc-black),
+);
+
+@import 'wlc-engine/modules/core/components/datepicker/styles/datepicker.component.scss';
+
+// Component's custom styles

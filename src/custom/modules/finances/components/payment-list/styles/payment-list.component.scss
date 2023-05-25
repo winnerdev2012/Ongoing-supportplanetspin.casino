@@ -1,0 +1,8 @@
+$customThemeDefault: (
+    'itemBoxShadowActive': 0 0 8px #7f7cff,
+    'itemBoxShadowHover': 0 0 3px #7f7cff,
+);
+
+@import 'wlc-engine/modules/finances/components/payment-list/styles/payment-list.component.scss';
+
+// Component's custom styles

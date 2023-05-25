@@ -1,0 +1,20 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefault: (
+    'headerOverlayBg': none,
+    'prizeboardBg': #{
+        url('/static/images/tournaments/prizeboard-decor-1.png') no-repeat 6% 30%,
+        url('/static/images/tournaments/prizeboard-decor-2.png') no-repeat 12.5% 57%,
+        url('/static/images/tournaments/prizeboard-decor-3.png') no-repeat 95% 30%,
+        radial-gradient(51% 75% at 50% 25%, #6733a9 0%, #32056d 100%)
+    } ,
+    'headerStatusColorAvaliable': var(--mc-bg700),
+    'headerStatusBgAvaliable': ef.get('mainColors', 'secondaryGradient'),
+    'headerStatusColorActive': var(--mc-bg700),
+    'rulesTermsAlign': center,
+    'rulesDescrAlign': center,
+);
+
+@import 'wlc-engine/modules/tournaments/components/tournament/components/tournament-detail/styles/tournament-detail.component.scss';
+
+// Component's custom styles

@@ -1,0 +1,9 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefault: (
+    'lineEmptyBg': var(--mc-baseMain),
+);
+
+@import 'wlc-engine/modules/user/components/loyalty-progress/styles/loyalty-progress.component.scss';
+
+// Component's custom styles

@@ -1,0 +1,104 @@
+@use 'engine-scss/functions' as ef;
+@use 'engine-scss/mixins/base.mixins' as bm;
+@use 'engine-scss/mixins/mediaqueries' as mq;
+
+$customThemeDefault: (
+    'bonusIconShadow': 2px 5px 1px rgba(#000, 0.45),
+    'bonusIconValueFontColor': var(--mc-baseMain),
+    'bonusIconValueBg': var(--mc-bg100),
+    'backgroundExperience': none,
+    'backgroundLoyalty': none,
+    'backgroundBalance': none,
+    'backgroundFreerounds': none,
+    'backgroundRelative': none,
+    'backgroundFreebets': none,
+    'backgroundLootbox': none,
+    'dummyBgSize': cover,
+);
+
+$customThemePartial: (
+    'iconSignBorder': 3px solid var(--mc-bg100),
+    'iconSignBackground': var(--mc-bg100),
+    'blankIconSignBackground': var(--mc-bg100),
+    'blankCheckNameColor': var(--fc-inputBg),
+);
+
+$customThemePromoHome: (
+    'contentBackdrop': none,
+    'tagColor': ef.get('mainColors', 'bg700'),
+);
+
+$customThemePreview: (
+    'blankBackdrop': var(--mc-bgModal),
+    'blankBgSize': cover,
+    'contentOverlayBg': linear-gradient(0deg, rgba(#23116d, 0.3) 37%, rgba(#23116d, 0) 77%),
+);
+
+$customThemePromo: (
+    'imgPadding': (
+        320: ef.size(3) 0 0,
+        560: ef.size(3) 0 0 ef.size(3),
+        720: ef.size(7) 0 0 ef.size(7),
+        1630: ef.size(8) 0 0 ef.size(8)
+    ),
+    'iconWidth': (
+        320: 100px,
+        720: 120px,
+        1200: 100px,
+        1630: 144px,
+    ),
+    'iconHeight': (
+        320: 100px,
+        720: 120px,
+        1200: 100px,
+        1630: 144px,
+    ),
+    'iconMargin': (
+        375: 20px 35px 0,
+        560: 0,
+    )
+    
+);
+
+@import 'wlc-engine/modules/bonuses/components/bonus-item/styles/bonus-item.component.scss';
+
+.wlc-bonus-item--theme-preview {
+
+    .wlc-bonus-item__icon-text {
+        background-color: var(--mc-bg100);
+    }
+}
+
+.wlc-bonus-item--theme-partial {
+
+    .wlc-bonus-item__icon-text {
+        background-color: #861d82;
+    }
+
+    .chosen {
+
+        .wlc-bonus-item__icon-text {
+            background-color: var(--mc-bg100);
+        }
+    }
+}
+
+.wlc-bonus-item--theme-promo {
+
+    .wlc-bonus-item__icon {
+        @include bm.get-mq-map('width', $themePromo, 'iconWidth');
+        @include bm.get-mq-map('height', $themePromo, 'iconHeight');
+    }
+}
+
+.wlc-bonus-item--theme-default {
+
+    .wlc-bonus-item__icon {
+
+        position: absolute;
+        top: 15%;
+        left: 12%;
+        right: auto;
+    }
+}
+

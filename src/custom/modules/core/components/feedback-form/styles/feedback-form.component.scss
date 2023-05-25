@@ -1,0 +1,17 @@
+@use 'engine-scss/mixins/mediaqueries' as mq;
+
+// Set custom variables before @import
+
+@import 'wlc-engine/modules/core/components/feedback-form/styles/feedback-form.component.scss';
+
+// Component's custom styles
+
+.wlc-feedback-form--theme-default:host {
+
+    .wlc-feedback-form-details__item {
+
+        @include mq.min(1024) {
+            max-width: 54%;
+        }
+    }
+}

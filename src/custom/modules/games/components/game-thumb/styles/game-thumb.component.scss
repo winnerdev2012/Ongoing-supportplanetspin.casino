@@ -1,0 +1,15 @@
+$customThemeDefault: (
+    'placeholderBgImg': url('/static/images/logo.png'),
+    'placeholderBgImgSize': 30%,
+    'descBeforeBg': linear-gradient(0deg, #000 -0.2%, rgba(#000, 0) 100%),
+    'favouriteBackRadius': 100%,
+    'favouriteBackBg': var(--mc-bg300),
+);
+
+$customThemeVertical: (
+    'controlsBg': linear-gradient(0deg, #000 -0.2%, rgba(#000, 0) 77%),
+);
+
+@import 'wlc-engine/modules/games/components/game-thumb/styles/game-thumb.component.scss';
+
+// Component's custom styles

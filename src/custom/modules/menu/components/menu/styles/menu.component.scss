@@ -1,0 +1,9 @@
+@use 'engine-scss/functions' as ef;
+
+$customMenuThemeContacts: (
+    'activeColor': var(--mc-bg700),
+);
+
+@import 'wlc-engine/modules/menu/components/menu/styles/menu.component.scss';
+
+// Component's custom styles

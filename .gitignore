@@ -1,0 +1,100 @@
+# IDE folders
+/.project
+/.settings
+/.buildpath
+/.idea
+/npm-debug.log
+/yarn.lock
+/nbproject/private/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# /
+/bower_components
+/vendor
+/temp
+/cache/*
+/.stylelintcache
+/.eslintcache
+/api-tests
+/.angular
+
+# /roots
+/roots/siteconfig_local.php
+/roots/template/angular.html
+/roots/template/inline.js
+/roots/template/head.tpl
+
+# /roots/static
+/roots/static/dist
+/roots/static/css/hosted.fields.css
+/roots/static/css/app.loader.scss
+/roots/static/css/hosted.fields*.css
+/roots/static/css/piq.cashier*.css
+/roots/static/engine.json
+
+# WP
+roots/content/wp
+roots/content/wp-content
+roots/content/local-config.php
+
+# Compiled translation files
+/roots/locale/**/*.mo
+/roots/locale/**/*.pot
+/roots/static/languages/*.json
+/roots/static/po/**/*.pot
+
+/src/static/languages/*.mo
+
+!/**/.gitkeep
+
+/roots/template/include-config.tpl
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+wlc-engine
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+project_version
+
+# System Files
+.DS_Store
+Thumbs.db
+
+/src/custom/**/~*.*
+/src/staticImagesList.json
+
+# Reports
+bundle_report.html
+roots/static/css/app.loader.css

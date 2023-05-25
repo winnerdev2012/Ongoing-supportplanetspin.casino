@@ -1,0 +1,50 @@
+#!/bin/bash
+
+source project_env
+prefix=test
+is_develop=$(git branch | awk '/^\* develop/ { print $2 }')
+
+if ! [ -n "$is_develop" ]; then
+    echo " * Only allowed at develop branch. Begone!"
+    exit 1
+fi
+
+function mktag() {
+    tagdate=$(date '+%Y%m%d')
+    tagbasename=$prefix-$tagdate
+
+    nextver=$[ $(git tag -l "$tagbasename.*" | wc -l) + 1]
+
+    tagname="$tagbasename.$nextver"
+    ver="$tagdate.$nextver"
+    echo $ver > project_version
+
+    if ! git tag -a -m "Releasing testing version - $tagname" $tagname; then
+        rc=$?
+        echo " * setting tag $tagname failed"
+        exit $rc
+    fi
+    if ! git push origin HEAD:develop $tagname; then
+        rc=$?
+        echo " * pushing tag $tagname failed"
+        exit $rc
+    fi
+}
+
+if ! git fetch -t;
+then
+    rc=$?
+    echo " * git fetch failed"
+    exit $rc
+fi
+
+
+if [ -n "$1" ];
+then
+    y=$1
+else
+    echo -n "Create testing-release [y/N]? "; read y
+fi
+
+[ "x$y" == "xy" ] && mktag
+

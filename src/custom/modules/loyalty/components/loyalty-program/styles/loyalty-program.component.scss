@@ -1,0 +1,12 @@
+// Set custom variables before @import
+
+$customThemeDefault : (
+    'containerBackground': (
+        320: transparent,
+        1200: url('/static/images/loyalty/loyalty-program-bg.jpg') center / cover,
+    ),
+);
+
+@import 'wlc-engine/modules/loyalty/components/loyalty-program/styles/loyalty-program.component.scss';
+
+// Component's custom styles

@@ -1,0 +1,10 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefault: (
+    'tournamentGradient': none,
+    'tagColor': var(--mc-bg700),
+);
+
+@import 'wlc-engine/modules/tournaments/components/tournament/components/tournament-banner/styles/tournament-banner.component.scss';
+
+// Component's custom styles

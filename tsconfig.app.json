@@ -1,0 +1,31 @@
+{
+    "extends": "./node_modules/@egamings/wlc-engine/tsconfig.app.json",
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "baseUrl": "./",
+        "paths": {
+            "wlc-engine/*": [
+                "wlc-engine/*"
+            ],
+            "wlc-config/*": [
+                "config/frontend/*"
+            ],
+            "wlc-src/*": [
+                "src/*"
+            ]
+        }
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts",
+        "wlc-engine/typings.d.ts"
+    ],
+    "include": [
+        "wlc-engine/**/*.d.ts",
+        "custom/**/*"
+    ],
+    "exclude": [
+        "custom/**/~*.ts",
+        "wlc-engine/src/system/inline/**/*.ts"
+    ]
+}

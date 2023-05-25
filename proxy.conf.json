@@ -1,0 +1,12 @@
+{
+    "/api": {
+        "target": "https://wlc_slotgambler.wlc.localhost/",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/static": {
+        "target": "https://wlc_slotgambler.wlc.localhost/",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

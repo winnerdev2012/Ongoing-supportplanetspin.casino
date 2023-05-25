@@ -1,0 +1,11 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefault: (
+    'pageItemRadius': 50px,
+    'activePaginationArrowColor': ef.get('mainColors', 'buttonGradient'),
+    'activePaginationArrowColorHover': ef.get('mainColors', 'buttonGradient'),
+);
+
+@import 'wlc-engine/modules/core/components/pagination/styles/pagination.component.scss';
+
+// Component's custom styles

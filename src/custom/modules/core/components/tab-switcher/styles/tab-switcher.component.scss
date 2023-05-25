@@ -1,0 +1,14 @@
+// Set custom variables before @import
+
+$customThemeDefault: (
+    'navItemActiveBackground': var(--mc-bg300),
+    'navItemBackground': var(--mc-bg700),
+    'bodyBackground': (
+        320: var(--mc-bg300),
+        900: transparent,
+    ),
+);
+
+@import 'wlc-engine/modules/core/components/tab-switcher/styles/tab-switcher.component.scss';
+
+// Component's custom styles

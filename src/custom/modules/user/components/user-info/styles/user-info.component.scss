@@ -1,0 +1,7 @@
+@use 'engine-scss/mixins/base.mixins' as bm;
+
+$customThemeDefault: (
+    'userInfoDropdownBtnBorderRadius': 50px,
+);
+
+@import 'wlc-engine/modules/user/components/user-info/styles/user-info.component.scss';

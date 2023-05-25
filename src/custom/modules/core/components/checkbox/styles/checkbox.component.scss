@@ -1,0 +1,8 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefault: (
+    'checkboxElemBorderColorHover': var(--mc-secondary),
+    'iconSvgStrokeHover': var(--mc-secondary),
+);
+
+@import 'wlc-engine/modules/core/components/checkbox/styles/checkbox.component.scss';

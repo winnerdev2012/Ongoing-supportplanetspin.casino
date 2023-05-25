@@ -1,0 +1,9 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeBanner: (
+    'tagColor': ef.get('mainColors', 'bg700'),
+);
+
+@import 'wlc-engine/modules/tournaments/components/tournament-list/styles/tournament-list.component.scss';
+
+// Component's custom styles

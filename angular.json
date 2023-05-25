@@ -1,0 +1,362 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "wlc-site": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-builders/custom-webpack:browser",
+                    "options": {
+                        "customWebpackConfig": {
+                            "path": "./wlc-engine/system/webpack-config/webpack.app.js",
+                            "mergeStrategies": {
+                                "externals": "append"
+                            }
+                        },
+                        "allowedCommonJsDependencies": [
+                            "@formatjs/intl-locale/polyfill",
+                            "@formatjs/intl-numberformat/polyfill",
+                            "@formatjs/intl-numberformat/should-polyfill",
+                            "@formatjs/intl-pluralrules/polyfill",
+                            "@formatjs/intl-pluralrules/should-polyfill",
+                            "css-element-queries",
+                            "text-overflow-clamp",
+                            "hosted-fields-sdk"
+                        ],
+                        "outputPath": "roots/static/dist",
+                        "baseHref": "/",
+                        "deployUrl": "/static/dist/",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "preserveSymlinks": true,
+                        "aot": false,
+                        "verbose": false,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            "src/manifest.webmanifest"
+                        ],
+                        "styles": [
+                            "wlc-engine/engine-scss/engine.styles.scss"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "./src/app-styles",
+                                "./wlc-engine"
+                            ]
+                        },
+                        "scripts": [
+                            "wlc-engine/gettext.js"
+                        ],
+                        "webWorkerTsConfig": "./tsconfig.worker.json"
+                    },
+                    "configurations": {
+                        "dev": {
+                            "watch": true,
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        },
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "wlc-engine/system/environments/environment.ts",
+                                "with": "wlc-engine/system/environments/environment.prod.ts"
+                            },
+                            {
+                                "replace": "wlc-engine/modules/core/system/interceptors/interceptors.ts",
+                                "with": "wlc-engine/modules/core/system/interceptors/interceptors.prod.ts"
+                            }],
+                            "optimization": true,
+                            "buildOptimizer": false,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "aot": false,
+                            "budgets": [{
+                                "type": "bundle",
+                                "name": "main",
+                                "maximumWarning": "2.5mb",
+                                "maximumError": "3.5mb"
+                            },
+                            {
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            },
+                            {
+                                "type": "anyComponentStyle",
+                                "maximumWarning": "30kb",
+                                "maximumError": "100kb"
+                            }],
+                            "serviceWorker": true,
+                            "ngswConfigPath": "./ngsw-config.json",
+                            "watch": false
+                        }
+                    }
+                },
+                "translations": {
+                    "builder": "@egamings/wlc-engine-casino:translations",
+                    "options": {}
+                },
+                "serve": {
+                    "builder": "@angular-builders/custom-webpack:dev-server",
+                    "options": {
+                        "baseHref": "/"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "wlc-site:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "wlc-site:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets",
+                            "src/manifest.webmanifest"
+                        ],
+                        "styles": [
+                            "src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "src/**/*.ts"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "wlc-site:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "wlc-site:serve:production"
+                        }
+                    }
+                },
+                "server": {
+                    "builder": "@angular-builders/custom-webpack:server",
+                    "options": {
+                        "customWebpackConfig": {
+                            "path": "./wlc-engine/system/webpack-config/webpack.app.js",
+                            "mergeStrategies": {
+                                "externals": "append"
+                            }
+                        },
+                        "outputPath": "dist/wlc-site/server",
+                        "preserveSymlinks": true,
+                        "main": "server.ts",
+                        "tsConfig": "tsconfig.server.json",
+                        "showCircularDependencies": false,
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "./src/app-styles",
+                                "./wlc-engine"
+                            ]
+                        }
+                    },
+                    "configurations": {
+                        "production": {
+                            "outputHashing": "media",
+                            "fileReplacements": [{
+                                "replace": "src/system/environments/environment.ts",
+                                "with": "src/system/environments/environment.prod.ts"
+                            }],
+                            "sourceMap": false,
+                            "optimization": true
+                        }
+                    }
+                },
+                "serve-ssr": {
+                    "builder": "@nguniversal/builders:ssr-dev-server",
+                    "options": {
+                        "browserTarget": "wlc-site:build",
+                        "serverTarget": "wlc-site:server"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "wlc-site:build:production",
+                            "serverTarget": "wlc-site:server:production"
+                        }
+                    }
+                },
+                "prerender": {
+                    "builder": "@nguniversal/builders:prerender",
+                    "options": {
+                        "browserTarget": "wlc-site:build:production",
+                        "serverTarget": "wlc-site:server:production",
+                        "routes": [
+                            "/"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {}
+                    }
+                }
+            }
+        },
+        "wlc-engine": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:component": {
+                    "style": "scss"
+                }
+            },
+            "root": "wlc-engine",
+            "sourceRoot": "wlc-engine/src",
+            "prefix": "wlc",
+            "architect": {
+                "build": {
+                    "builder": "@angular-builders/custom-webpack:browser",
+                    "options": {
+                        "customWebpackConfig": {
+                            "path": "./wlc-engine/system/webpack-config/webpack.app.js",
+                            "mergeStrategies": {
+                                "externals": "append"
+                            }
+                        },
+                        "outputPath": "dist/wlc-engine",
+                        "index": "wlc-engine/src/index.html",
+                        "main": "wlc-engine/src/main.ts",
+                        "polyfills": "wlc-engine/src/polyfills.ts",
+                        "tsConfig": "wlc-engine/tsconfig.app.json",
+                        "aot": true,
+                        "assets": [
+                            "wlc-engine/src/favicon.ico",
+                            "wlc-engine/src/assets"
+                        ],
+                        "styles": [
+                            "src/wlc-styles/wlc.styles.scss"
+                        ],
+                        "stylePreprocessorOptions": {
+                            "includePaths": [
+                                "wlc-engine/wlc-styles"
+                            ]
+                        },
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "wlc-engine/src/system/environments/environment.ts",
+                                "with": "wlc-engine/src/system/environments/environment.prod.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            },
+                            {
+                                "type": "anyComponentStyle",
+                                "maximumWarning": "10kb",
+                                "maximumError": "20kb"
+                            }]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-builders/custom-webpack:dev-server",
+                    "options": {
+                        "browserTarget": "wlc-engine:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "wlc-engine:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "wlc-engine:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "wlc-engine/src/test.ts",
+                        "polyfills": "wlc-engine/src/polyfills.ts",
+                        "tsConfig": "wlc-engine/tsconfig.spec.json",
+                        "karmaConfig": "wlc-engine/karma.conf.js",
+                        "assets": [
+                            "wlc-engine/src/favicon.ico",
+                            "wlc-engine/src/assets"
+                        ],
+                        "styles": [
+                            "wlc-engine/src/styles.scss"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "src/**/*.ts"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "wlc-engine/e2e/protractor.conf.js",
+                        "devServerTarget": "wlc-engine:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "wlc-engine:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "wlc-site",
+    "cli": {
+        "analytics": false
+    }
+}

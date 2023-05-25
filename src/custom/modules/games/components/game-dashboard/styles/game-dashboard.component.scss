@@ -1,0 +1,8 @@
+$customThemeDefault: (
+    'backgroundTabsHover': var(--mc-bg100),
+    'panchBtnIconActive': var(--mc-bg500)
+);
+
+@import 'wlc-engine/modules/games/components/game-dashboard/styles/game-dashboard.component.scss';
+
+// Component's custom styles

@@ -1,0 +1,8 @@
+$customThemeLeft: (
+    'menuLinksActiveBg': rgba(#fff, 0.2),
+    'menuLinksHoverBg': rgba(#fff, 0.1)
+);
+
+@import 'wlc-engine/modules/core/components/burger-panel/styles/burger-panel.component.scss';
+
+// Component's custom styles

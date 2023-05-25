@@ -1,0 +1,13 @@
+$customDropdownThemeDefault: (
+    'hoverLinkBg': var(--mc-bg100),
+    'activeLinkBg': var(--mc-bg100),
+    'activeTabLinkColor': var(--mc-bg700),
+);
+
+$customThemeDefault: (
+    'profileMenuActiveColor': var(--mc-main),
+);
+
+@import 'wlc-engine/modules/menu/components/profile-menu/styles/profile-menu.component.scss';
+
+// Component's custom styles

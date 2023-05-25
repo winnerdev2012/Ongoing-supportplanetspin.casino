@@ -1,0 +1,14 @@
+@use 'engine-scss/functions' as ef;
+
+@import 'wlc-engine/modules/games/components/category-preview/styles/category-preview.component.scss';
+
+.wlc-category-preview--theme-default:host {
+
+    .category-card {
+
+        &--new {
+            background: ef.get-value($themeDefault, 'categoryBgLivecasino');
+            background-repeat: no-repeat;
+        }
+    }
+}

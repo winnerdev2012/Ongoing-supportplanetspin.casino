@@ -1,0 +1,33 @@
+$customDropdownThemeDefault: (
+    'activeTabLinkColor': var(--mc-bg700),
+    'arrowFillColorActive': var(--mc-bg700),
+    'activeLinkBg': rgba(#fff, 0.2),
+    'activeLinkColor': var(--mc-bg700),
+);
+
+@import 'wlc-engine/modules/menu/components/mobile-menu/styles/mobile-menu.component.scss';
+
+// Component's custom styles
+
+.wlc-mobile-menu--type-dropdown:host {
+
+    &.wlc-mobile-menu--theme-mod-vertical {
+
+        ::ng-deep {
+
+            .wlc-category-menu--type-dropdown.wlc-category-menu--theme-mod-vertical .wlc-menu,
+            .wlc-menu {
+
+                .wlc-menu__submenu {
+
+                    .wlc-menu__link {
+
+                        &.active {
+                            color: var(--mc-baseMain);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

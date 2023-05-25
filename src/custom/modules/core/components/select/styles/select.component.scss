@@ -1,0 +1,14 @@
+$customBaseSettings: (
+    'selectDropdownBackground': var(--mc-baseMain),
+    'selectDropdownItemColor': var(--mc-bg700),
+    'dropdownItemBgActive': var(--mc-main),
+    'dropdownItemColorActive': var(--mc-bg700),
+    'dropdownItemBgHover': var(--mc-main),
+    'dropdownItemColorHover': var(--mc-bg700),
+    'scrollbarTrackBg': transparent,
+    'noResultTextColor': var(--mc-bg700),
+);
+
+@import 'wlc-engine/modules/core/components/select/styles/select.component.scss';
+
+// Component's custom styles

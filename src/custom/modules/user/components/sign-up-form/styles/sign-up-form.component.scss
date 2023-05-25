@@ -1,0 +1,15 @@
+// Set custom variables before @import
+
+@import 'wlc-engine/modules/user/components/sign-up-form/styles/sign-up-form.component.scss';
+
+// Component's custom styles
+
+.wlc-sign-up-form--theme-default:host {
+
+    &::ng-deep {
+
+        .wlc-checkbox--self-exclude {
+            display: none;
+        }
+    }
+}

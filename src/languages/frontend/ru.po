@@ -1,0 +1,9 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Error occured during login process"
+msgstr "Неверно введен адрес эл.почты или пароль"

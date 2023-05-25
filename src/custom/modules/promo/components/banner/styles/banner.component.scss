@@ -1,0 +1,181 @@
+@use 'engine-scss/mixins/mediaqueries' as mq;
+
+@import 'wlc-engine/modules/promo/components/banner/styles/banner.component.scss';
+
+.wlc-banner--theme-default-banner:host {
+
+    ::ng-deep {
+
+        .banner_bg {
+
+            &:before {
+                display: none;
+            }
+        }
+
+        .ps-banner-1 {
+
+            .banner__decor {
+
+                &-1 {
+                    bottom: 10%;
+                    left: 0;
+
+                    img {
+                        max-width: 75px;
+
+                        @include mq.min(1024) {
+                            max-width: 115px;
+                        }
+
+                        @include mq.min(1630) {
+                            max-width: 100%;
+                        }
+                    }
+
+                    @include mq.min(1630) {
+                        left: 3%;
+                    }
+                }
+
+                &-2 {
+                    top: 15%;
+                    left: 5%;
+
+                    img {
+                        max-width: 140px;
+
+                        @include mq.min(1024) {
+                            max-width: 190px;
+                        }
+
+                        @include mq.min(1630) {
+                            max-width: 100%;
+                        }
+                    }
+
+                    @include mq.min(1630) {
+                        left: 10%;
+                    }
+                }
+
+                &-3 {
+                    right: 0;
+                    bottom: -5px;
+
+                    img {
+                        max-width: 240px;
+
+                        @include mq.min(1024) {
+                            max-width: 330px;
+                        }
+
+                        @include mq.min(1630) {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .ps-banner-2 {
+
+            .banner__decor {
+
+                &-1 {
+                    bottom: -5px;
+                    left: 0;
+
+                    img {
+                        max-width: 250px;
+
+                        @include mq.min(1024) {
+                            max-width: 350px;
+                        }
+
+                        @include mq.min(1630) {
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+                &-2 {
+                    top: 2%;
+                    left: 7%;
+
+                    img {
+                        max-width: 140px;
+
+                        @include mq.min(1024) {
+                            max-width: 180px;
+                        }
+
+                        @include mq.min(1630) {
+                            max-width: 100%;
+                        }
+                    }
+                }
+
+                &-3 {
+                    top: -5px;
+                    right: -45px;
+                    bottom: -5px;
+
+                    img {
+                        height: 100%;
+                    }
+
+                    @include mq.min(1630) {
+                        right: 0;
+                    }
+                }
+            }
+        }
+
+        .ps-banner-3 {
+
+            .banner__decor {
+
+                &-1 {
+                    top: -5px;
+                    bottom: -5px;
+                    left: 0;
+
+                    img {
+                        height: 100%;
+                    }
+
+                    @include mq.min(1024) {
+                        left: 30px;
+                    }
+
+                    @include mq.min(1630) {
+                        left: 70px;
+                    }
+                }
+
+                &-2 {
+                    top: 0;
+                    right: 0;
+                    bottom: -5px;
+
+                    img {
+                        height: 100%;
+                    }
+
+                    @include mq.min(1630) {
+                        top: auto;
+                    }
+                }
+            }
+        }
+
+        .banner__decor {
+            display: none;
+
+            @include mq.min(640) {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.app.json",
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "outDir": "./out-tsc/app-server",
+        "module": "commonjs",
+        "types": [
+            "node"
+        ]
+    },
+    "files": [
+        "src/main.server.ts",
+        "server.ts"
+    ],
+    "angularCompilerOptions": {
+        "entryModule": "./src/app/app.server.module#AppServerModule",
+        "enableIvy": true,
+        "fullTemplateTypeCheck": false,
+        "strictTemplates": false,
+        "strictInjectionParameters": true,
+        "disableTypeScriptVersionCheck": false
+    }
+}

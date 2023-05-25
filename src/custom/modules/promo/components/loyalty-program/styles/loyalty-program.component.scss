@@ -1,0 +1,20 @@
+$customThemeDefault: (
+    'containerPadding': (
+        320: 0 10px,
+        480: 0 15px,
+        1024: 40px 0,
+    ),
+    'containerBackground': (
+        320: none,
+        1024: url('/static/images/loyalty/loyalty-program-bg.jpg') no-repeat center / cover,
+    ),
+    'containerDecorDisplay': none,
+    'itemBackground': (
+        320: #{radial-gradient(72% 72% at 50% 50%, #7549df 0%, #2f0e7f 100%), #1c1a41},
+        1024: transparent,
+    ),
+);
+
+@import 'wlc-engine/modules/promo/components/loyalty-program/styles/loyalty-program.component.scss';
+
+// Component's custom styles

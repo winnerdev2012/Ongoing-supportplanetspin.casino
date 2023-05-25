@@ -1,0 +1,10 @@
+$customThemeDefault: (
+    'rootBackground': (
+        320: url('/static/images/loyalty/loyalty-program-bg-mobile.jpg') center / cover,
+        1024: transparent,
+    ),
+);
+
+@import 'wlc-engine/modules/promo/components/loyalty-level/styles/loyalty-level.component.scss';
+
+// Component's custom styles

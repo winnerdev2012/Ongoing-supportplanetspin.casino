@@ -1,0 +1,32 @@
+$customThemeDefault: (
+    'buttonOpacity': 1,
+    'iconsColor': var(--mc-bg500),
+);
+
+@import 'wlc-engine/modules/games/components/game-wrapper/styles/game-wrapper.component.scss';
+
+.wlc-game-wrapper--theme-default {
+
+    .wlc-game-wrapper__btn-right {
+
+        .wlc-icon {
+
+            &.icon-btn:not(.active) {
+                color: var(--mc-bg500);
+            }
+
+            &.wlc-icon--favourite {
+
+                &.active {
+
+                    svg {
+
+                        path {
+                            fill: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

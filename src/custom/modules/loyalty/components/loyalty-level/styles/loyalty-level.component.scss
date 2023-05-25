@@ -1,0 +1,12 @@
+// Set custom variables before @import
+
+$customThemeDefault: (
+    'rootBackground': (
+        320: radial-gradient(72% 72% at 50% 50%, #7549df 0%, #2f0e7f 100%),
+        1024: transparent,
+    ),
+);
+
+@import 'wlc-engine/modules/loyalty/components/loyalty-level/styles/loyalty-level.component.scss';
+
+// Component's custom styles

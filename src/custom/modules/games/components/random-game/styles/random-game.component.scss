@@ -1,0 +1,7 @@
+$customThemeDefault: (
+    'background': #{var(--mc-bg700) url('/static/images/random-game-bg.jpg') no-repeat center / cover}
+);
+
+@import 'wlc-engine/modules/games/components/random-game/styles/random-game.component.scss';
+
+// Component's custom styles

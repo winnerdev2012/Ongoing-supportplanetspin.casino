@@ -1,0 +1,8 @@
+$customThemeDefault: (
+    'successIconColor': var(--fc-inputBg),
+    'errorIconColor': var(--fc-errorBackground),
+);
+
+@import 'wlc-engine/modules/core/components/form-control/styles/form-control.component.scss';
+
+// Component's custom styles

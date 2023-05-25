@@ -1,0 +1,33 @@
+{
+    "name": "wlc-site",
+    "version": "0.0.0",
+    "scripts": {
+        "ng": "ng",
+        "gulp": "gulp",
+        "dev": "gulp dev",
+        "dist": "gulp dist",
+        "build:dev": "ng build --configuration=dev",
+        "build:prod": "ng build --configuration=production",
+        "build": "npm run translations && ng build --prod && npm run build-inline && ./node_modules/@egamings/wlc-engine/wlc-engine/utils/project_post-build.sh",
+        "sw-fix": "./node_modules/.bin/ngsw-config roots/static/dist/ ./ngsw-config.json /static/dist/",
+        "test": "ng test",
+        "lint": "ng lint && npm run stylelint",
+        "e2e": "ng e2e",
+        "stylelint": "stylelint './src/**/*.scss' --syntax scss",
+        "dev:ssr": "ng run wlc-site:serve-ssr --host=0.0.0.0",
+        "serve:ssr": "node dist/wlc-site/server/main.js",
+        "build:ssr": "ng build --prod && ng run wlc-site:server:production",
+        "build-inline": "webpack -p --mode production --config ./wlc-engine/webpack.inline.js",
+        "watch-inline": "webpack -d --mode development -w --config ./wlc-engine/webpack.inline.js",
+        "prerender": "ng run wlc-site:prerender",
+        "tsc": "tsc",
+        "fullup": "rm -rf node_modules package-lock.json && npm install",
+        "test:api": "npx gulp fix-jasmine && cd api-tests && PROJECT_PATH=$(pwd) npx jasmine-ts --config=jasmine.json",
+        "analyze-dev": "ng build --configuration=dev --stats-json --watch=false && webpack-bundle-analyzer roots/static/dist/stats.json -m static -r bundle_report.html",
+        "analyze-prod": "ng build --configuration=production --stats-json && webpack-bundle-analyzer roots/static/dist/stats.json -m static -r bundle_report.html"
+    },
+    "private": true,
+    "dependencies": {
+        "@egamings/wlc-engine": "^1.9.0"
+    }
+}

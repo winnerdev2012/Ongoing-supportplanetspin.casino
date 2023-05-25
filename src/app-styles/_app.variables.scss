@@ -1,0 +1,140 @@
+@use 'sass:list';
+
+$noto-sans: (
+    name: 'Noto Sans',
+    weight: (400, 500, 600, 700),
+    style: (normal, italic),
+    format: ('woff2', 'woff'),
+    path: '/static/fonts/noto-sans-v27-latin_cyrillic',
+);
+
+$font-family-sans-serif: 'Noto Sans', sans-serif;
+
+$customLayoutGap: (
+    'all': (
+        '.wlc-sections__categories',
+        '.wlc-sections__content-games-top',
+        '.wlc-sections__content-games-bottom',
+        '.wlc-sections__content-games',
+        '.wlc-sections__content-wins',
+        '.wlc-sections__total-jackpot',
+        '.wlc-sections__promo-categories',
+        '.wlc-sections__promo-bonuses',
+        '.wlc-sections__home-promo',
+        '.wlc-sections__winners-section',
+        '.wlc-sections__content-games-vertical',
+        '.wlc-sections__loyalty-program',
+        '.wlc-sections__game-widgets',
+        '.wlc-sections__providers',
+        '.wlc-sections__content-wins-transparent',
+        '.wlc-sections__random-games',
+        '.wlc-sections__content-games-1',
+        '.wlc-sections__content-games-2',
+        '.wlc-sections__content-games-3',
+        '.wlc-sections__content-games-4',
+        '.wlc-sections__content--theme-vip',
+    ),
+    '.app-contacts-state': (
+        '.wlc-sections__info-page'
+    ),
+    '[class*=\'app-profile-\']': (
+        '.wlc-sections__profile-content',
+    ),
+);
+
+$customMainColors: (
+    'baseMain': #fff,
+    'main': #03baf3,
+    'secondary': #e64fff,
+    'baseOpacity': rgba(255, 255, 255, 0.5),
+    'bg': #020020,
+    'bg100': #694eb4,
+    'bg300': #2b2d5e,
+    'bg500': #31307a,
+    'bg700': #1c1a41,
+    'bgModal': #25244d,
+    'error': #dd537c,
+    'success': #00c999,
+    'disabled': #ccc,
+    'buttonGradient': linear-gradient(119deg, #ff9900 23%, #ff00c7 74%),
+);
+
+$customFieldColors: (
+    'inputBg': #2b294f,
+    'borderColor': #58638a,
+    'textColor': #fff,
+    'placeholderColor': #5c6890,
+    'disabledPlaceholderColor': #5c6890,
+    'arrowColor': #5c6890,
+    'iconColor': #5c6890,
+    'disableBorder': #393c5b,
+    'errorBackground': #613c49,
+    'errorBorder': #bb6382,
+    'errorArrow': #bb6382,
+);
+
+$customTheme2Header: (
+    'headerLogoMaxWidth': (
+        375: 50px,
+        1630: 75px
+    ),
+    'headerSvgBtnHover': var(--mc-baseMain),
+);
+
+$customButtonSettings: (
+    'borderSecondary': 0,
+    'borderSecondaryHover': 0,
+    'borderSecondaryActive': 0,
+    'borderSecondaryActiveHover': 0,
+    'shadowSecondary': 0 0 0 2px var(--mc-secondary) inset,
+    'shadowHoverSecondary': 0 0 0 2px var(--mc-secondary) inset,
+    'backgroundSecondaryHover': rgba(#e64fff, 0.3),
+    'borderRadiusDefault': 50px,
+    'background': map-get($customMainColors, 'buttonGradient'),
+    'backgroundHover': map-get($customMainColors, 'buttonGradient'),
+    'borderDefault': 0,
+    'borderDefaultHover': 0,
+    'shadow': none,
+    'shadowHover': 0 4px 30px rgba(#ae00ff, 0.5),
+);
+
+$customWithIcons: (
+    'searchButtonIconFill': var(--mc-main),
+    'merchButtonIconFill': var(--mc-main),
+    'searchButtonBgHover': var(--mc-main),
+    'merchButtonBgHover': var(--mc-main),
+);
+
+$customGamesCategoriesDefault: (
+    'withoutBackBtnBorderHover': 2px solid var(--mc-main),
+    'withoutBackBgHover': var(--mc-main),
+);
+
+$customThumbAnimation: (
+    'thumbAnimationEffects': 'smooth',
+);
+
+$customThemeTotalJackpot: (
+    'sectionPadding': (
+        320: 0 20px 40px,
+    ),
+    'sectionHeight': (
+        320: auto,
+    ),
+    'sectionBackground': linear-gradient(95deg, #00a5c9 15%, #39439b 95%),
+    'secondaryBackground': none,
+    'textStrokeColor': #fff,
+    'textColor': #fff,
+    'titleTextStyle': 'PromoTitle',
+);
+
+$customTagConfig: (
+    'textStyle': 'SignTextBold',
+    'color': var(--mc-bg700),
+    'colorActive': var(--mc-bg700),
+);
+
+$customHlSubstr: (
+    'fontStyle': 'ThirdTitleBold',
+    'textColor': var(--mc-main),
+);

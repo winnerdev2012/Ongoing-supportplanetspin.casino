@@ -1,0 +1,22 @@
+{
+    "short_name": "PlanetSpin",
+    "name": "PlanetSpin",
+    "description": "Planetspin Casino",
+    "icons": [
+    {
+        "src": "/favicon/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+    },
+    {
+        "src": "/favicon/android-chrome-256x256.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }
+    ],
+    "start_url": "/",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6"
+}

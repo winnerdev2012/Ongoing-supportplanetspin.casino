@@ -1,0 +1,7 @@
+$customCommonStyles: (
+    'allLinkColorHover': var(--mc-baseMain),
+);
+
+@import 'wlc-engine/modules/games/components/games-grid/styles/games-grid.component.scss';
+
+// Component's custom styles

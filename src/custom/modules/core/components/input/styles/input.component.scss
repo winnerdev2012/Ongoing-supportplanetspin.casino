@@ -1,0 +1,13 @@
+// Set custom variables before @import
+
+@import 'wlc-engine/modules/core/components/input/styles/input.component.scss';
+
+.wlc-input--theme-default:host {
+
+    .wlc-input__input {
+
+        input {
+            background: var(--fc-inputBg);
+        }
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "name": "egamings/wlc-template",
+    "description": "WLC Core Template",
+    "authors": [
+        {
+            "name": "Developers",
+            "email": "dev@egamings.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "composer",
+            "url": "https://packagist.egamings.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0",
+        "egamings/wlc_core": "^1.2.0",
+        "egamings/wlc-seo": "^2.0",
+        "johnpbloch/wordpress-core-installer": "~0.2.1",
+        "johnpbloch/wordpress": "~4.7",
+        "qtranslate/qtranslate-xt": "3.6.2",
+        "wpackagist-plugin/contact-form-7": ">=4.3",
+        "wpackagist-plugin/wp-super-cache": "*",
+        "wpackagist-plugin/insert-pages": ">=2.7.2",
+        "wpackagist-plugin/page-in-widget": ">=1.2",
+        "wpackagist-plugin/loco-translate": ">=1.5.4",
+        "wpackagist-plugin/redirection": ">=2.4.2",
+        "wpackagist-plugin/google-analytics-for-wordpress": ">=5.4.6",
+        "wpackagist-theme/twentyfifteen": ">=1.3",
+        "wpackagist-plugin/wordpress-importer": "~0.6.1",
+        "wpackagist-plugin/wp-exporter-plus": "^1.0.0",
+        "wpackagist-plugin/wp-csv": "~1.8.0.0",
+        "wpackagist-plugin/wp-all-import": "~3.3.4",
+        "wpackagist-plugin/html5-responsive-faq": "~2.7.1",
+        "wpackagist-plugin/acf-to-rest-api": "^3.1",
+        "wpackagist-plugin/acf-qtranslate": "^1.7",
+        "wpackagist-plugin/advanced-custom-fields": "5.8.2",
+        "egamings/auto-pages": ">=1.0.0",
+        "egamings/default-pages": "^1.0.13"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "wordpress-install-dir": "roots/content/wp",
+        "installer-paths": {
+            "roots/content/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "roots/content/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "php -r \"copy('roots/siteconfig_local.dist.php', 'roots/siteconfig_local.php');\"",
+            "echo \"<?php\" > roots/content/wp-salt.php && wget -O - https://api.wordpress.org/secret-key/1.1/salt >> roots/content/wp-salt.php",
+            "npm run dev-install"
+        ]
+    }
+}

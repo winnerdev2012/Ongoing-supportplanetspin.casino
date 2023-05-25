@@ -1,0 +1,11 @@
+// Set custom variables before @import
+
+@import 'wlc-engine/modules/core/components/logo/styles/logo.component.scss';
+
+.wlc-logo__image::ng-deep {
+
+    img,
+    svg {
+        max-height: 75px;
+    }
+}

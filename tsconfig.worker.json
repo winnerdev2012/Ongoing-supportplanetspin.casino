@@ -1,0 +1,16 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./node_modules/@egamings/wlc-engine/tsconfig.worker.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/worker",
+    "lib": [
+      "es2018",
+      "webworker"
+    ],
+    "types": []
+  },
+  "include": [
+    "wlc-engine/**/*.worker.ts",
+    "src/**/*.worker.ts"
+  ]
+}

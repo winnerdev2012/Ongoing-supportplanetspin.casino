@@ -1,0 +1,38 @@
+@use 'engine-scss/mixins/base.mixins' as bm;
+
+$customThemeDefault: (
+    'iconColor': var(--mc-baseMain),
+    'iconHoverTransform': translate3d(0, -7px, 0),
+    'iconHoverBoxShadow': 0 9px 20px rgba(#000, 0.1),
+    'iconTransition': #{transform 0.2s, box-shadow 0.1s, background 0.1s},
+    'iconHoverTransition': #{transform 0.2s, box-shadow 0.1s, background 0.1s},
+);
+
+@import 'wlc-engine/modules/games/components/provider-links/styles/provider-links.component.scss';
+
+.wlc-provider-links--theme-default:host {
+
+    &.wlc-provider-links--theme-mod-inside-modal {
+
+        ::ng-deep {
+
+            .wlc-provider-links-item {
+                background: var(--mc-bg300);
+
+                @include bm.hover {
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    ::ng-deep {
+
+        .wlc-provider-links-item {
+
+            @include bm.hover {
+                background: var(--mc-bg100);
+            }
+        }
+    }
+}

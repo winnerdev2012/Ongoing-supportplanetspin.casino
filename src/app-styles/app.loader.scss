@@ -1,0 +1,6 @@
+$customAppLoader: (
+    'imgBlockPadding': 150px,
+    'imgBgUrl': url('/static/images/logo.png'),
+);
+
+@import 'node_modules/@egamings/wlc-engine/src/engine-scss/_engine.loader.scss';

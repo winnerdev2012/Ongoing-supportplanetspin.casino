@@ -1,0 +1,28 @@
+php_value max_execution_time 300
+php_flag display_errors 1
+
+AddDefaultCharset UTF-8
+
+Options -Indexes
+Options +FollowSymLinks
+
+<Files ~ "(.tpl)">
+    Order allow,deny
+    Deny from all
+</Files>
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^content/(.*)/?$ /index.php?content=1&route=$1 [QSA,L]
+
+RewriteRule ^admin/?$ /content/wp-login.php [QSA,L]
+
+#RewriteRule ^locale - [L]
+#RewriteRule ^locale/ - [L]
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^([a-z0-9]+)/(.*)/?$ /index.php?language=$1&route=$2 [QSA,L]
+RewriteRule ^([a-z0-9]+)/?$ /index.php?language=$1 [QSA,L]

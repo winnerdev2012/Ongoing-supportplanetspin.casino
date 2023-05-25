@@ -1,0 +1,20 @@
+@use 'engine-scss/functions' as ef;
+
+$customThemeDefaultBanner: (
+    'buttonBg': ef.get('mainColors', 'buttonGradient'),
+    'buttonBgHover': ef.get('mainColors', 'buttonGradient'),
+    'buttonBorderRadius': 50px,
+    'containerPadding': 0 10px,
+);
+
+$customThemeDefaultPagination: (
+    'swiperPagiContainerDisplay': none,
+    'swiperPagiBulletWidth': 10px,
+    'swiperPagiBulletHeight': 10px,
+    'swiperPagiBulletWidthActive': 10px,
+    'swiperPagiBulletHeightActive': 10px,
+    'swiperPagiBulletColor': var(--mc-baseOpacity),
+    'swiperPagiBulletColorActive': var(--mc-baseMain),
+);
+
+@import 'wlc-engine/modules/promo/components/slider/styles/slider.component.scss';

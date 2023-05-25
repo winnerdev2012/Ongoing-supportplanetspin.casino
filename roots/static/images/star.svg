@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.527 28.3465">
+  <title>star</title>
+  <g>
+    <polygon points="15.263 22.895 25.076 28.346 21.805 17.444 30.527 9.812 19.624 8.722 15.263 0 10.902 8.722 0 9.812 8.722 17.444 5.451 28.346 15.263 22.895" style="fill: #ffcf01"/>
+    <polygon points="15.263 0 15.263 14.173 19.624 8.722 15.263 0" style="opacity: 0.100000001490116;isolation: isolate"/>
+    <polygon points="15.263 14.173 30.527 9.812 21.805 17.444 15.263 14.173" style="opacity: 0.100000001490116;isolation: isolate"/>
+    <polygon points="15.263 14.173 21.805 17.444 25.076 28.346 15.263 14.173" style="opacity: 0.100000001490116;isolation: isolate"/>
+    <polygon points="15.263 0 15.263 14.173 10.902 8.722 15.263 0" style="fill: #fff;opacity: 0.200000002980232;isolation: isolate"/>
+    <path d="M6.4107,15.4161,4.8625,14.1732H4.361" style="fill: #fff;opacity: 0.259999990463257;isolation: isolate"/>
+    <polygon points="15.263 14.173 0 9.812 8.722 17.444 15.263 14.173" style="opacity: 0.100000001490116;isolation: isolate"/>
+    <polygon points="15.263 14.173 15.263 22.895 5.451 28.346 15.263 14.173" style="opacity: 0.100000001490116;isolation: isolate"/>
+    <path d="M5.4512,28.0848l.8722-2.9219" style="opacity: 0.100000001490116;isolation: isolate"/>
+  </g>
+</svg>

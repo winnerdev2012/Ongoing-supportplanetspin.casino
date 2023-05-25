@@ -1,0 +1,15 @@
+{
+    "extends": "./node_modules/@egamings/wlc-engine/tsconfig.json",
+    "compilerOptions": {
+        "sourceMap": true,
+        "baseUrl": ".",
+        "paths": {
+            "wlc-engine/*": [
+                "./wlc-engine/*"
+            ],
+            "wlc-config/*": [
+                "./config/frontend/*"
+            ]
+        }
+    }
+}

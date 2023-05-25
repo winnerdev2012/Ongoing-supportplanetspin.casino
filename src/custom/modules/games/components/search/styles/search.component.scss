@@ -1,0 +1,30 @@
+@use 'engine-scss/mixins/base.mixins' as bm;
+
+$customThemeDefault: (
+    'btnColorActive': var(--mc-bg700),
+    'btnIconColorActive': var(--mc-bg700),
+    'btnArrowColorActive': var(--mc-bg700),
+    'btnTransition': 0,
+);
+
+@import 'wlc-engine/modules/games/components/search/styles/search.component.scss';
+
+.wlc-search--theme-default:host {
+
+    .wlc-search__list-btn {
+
+        &.active {
+
+            .wlc-search__list-icon {
+                border-color: var(--mc-main) !important;
+            }
+        }
+
+        @include bm.hover {
+
+            .wlc-search__list-icon {
+                border-color: var(--mc-secondary);
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+server {
+        listen 80;
+        server_name devlo.wlcdemo.lan;
+        root /home/wlcuser/sites/devlo.wlcdemo.lan/public_html;
+        index index.php;
+        
+        reset_timedout_connection on;
+
+        add_header X-Frame-Options             "SAMEORIGIN";
+        rewrite ^/static[0-9\.]*(/.*)$ /static$1 last;
+        rewrite ^/admin/?$ /content/wp-login.php last;
+ 
+ 
+        rewrite "^/(?!(gstatic|content|receiver|robots|sitemap|favicon|manifest))(.*)/?$" /index.php?route=$1 last;
+        
+        error_page 404 /error404.html;
+        
+        location = /error404.html {
+            internal;
+        }
+        location = /receiver.html {
+            try_files \$uri =404;
+        }
+        location /content/ {
+            try_files
+                $uri
+                $uri/
+                /content/index.php?$args;
+        }
+
+        location ^~ /gstatic/ {
+                rewrite ^/gstatic/(.*) /$1 break;
+                proxy_pass https://static.egamings.com;
+                proxy_set_header X-Real-IP $remote_addr;
+        }
+        location ~ ^/index\.php$ {
+                fastcgi_pass   unix:/var/run/php/php-fpm.wlcuser.sock;
+                fastcgi_index  index.php;
+                include /etc/nginx/fastcgi.conf;
+                fastcgi_keep_conn on;
+                fastcgi_buffers 4 16k;
+                fastcgi_buffer_size 32k;
+                fastcgi_busy_buffers_size 32k;
+                fastcgi_max_temp_file_size 10m;
+                fastcgi_intercept_errors        off;
+                fastcgi_ignore_client_abort     off;
+                fastcgi_connect_timeout 3;
+                fastcgi_send_timeout 15;
+                fastcgi_read_timeout 300;
+                fastcgi_param REDIS_PREFIX WLCDEMO_;
+        }
+        
+        location ~ (.+\.php)$ {
+                #limit_req zone=php_global burst=20 nodelay;
+                
+                fastcgi_pass   unix:/var/run/php/php-fpm.wlcuser.sock;
+                fastcgi_index  index.php;
+                include /etc/nginx/fastcgi.conf;
+                
+                fastcgi_keep_conn on;
+                fastcgi_buffers 4 16k;
+                fastcgi_buffer_size 32k;
+                fastcgi_busy_buffers_size 32k;
+                fastcgi_max_temp_file_size 10m;
+                fastcgi_intercept_errors        off;
+                fastcgi_ignore_client_abort     off;
+                fastcgi_connect_timeout 3;
+                fastcgi_send_timeout 15;
+                fastcgi_read_timeout 300;
+                fastcgi_param REDIS_PREFIX WLCDEMO_;
+                fastcgi_param MAIN_DOMAIN devlo.wlcdemo.lan;
+        }
+        location = /favicon.ico {
+                try_files $uri @emptygif;
+        }
+        
+        location @emptygif {
+                internal;
+                empty_gif;
+                etag on;
+                expires 1h;
+        }
+        location = /robots.txt {
+                log_not_found off;
+        }
+        location = /sitemap.xml {
+                types { }
+                default_type application/xml;
+                log_not_found off;
+        }
+        
+        location ~* ^.+\.(png|jpg|jpeg|gif|ico)$ {
+                etag on;
+                expires max;
+        }
+        
+        location ~* ^.+\.(js|css|svg)$ {
+                etag on;
+                expires max;
+                gzip_static on;
+        }
+        
+        location ~* ^.+\.json$ {
+                etag on;
+                expires           modified +10m;
+                gzip_static on;
+        }
+        ## Disable viewing dot files
+        location ~ /\. {
+                deny  all;
+        }
+        
+        location ~* .*\.appcache {
+             types { }
+             default_type text/cache-manifest;
+        }
+}
